@@ -1,402 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spaes Dental Clinic · Osu Ring Estate, Accra</title>
-  <meta name="description" content="Dental clinic in Osu Ring Estate. Request an appointment on WhatsApp." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #faf8f5;
-      --card: #ffffff;
-      --ink: #1c1917;
-      --muted: #78716c;
-      --navy: #1e3a5f;
-      --navy-soft: #e8eef5;
-      --gold: #b45309;
-      --border: #e7e5e4;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Inter", system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Spaes Dental Clinic · Ring Estate, Osu</title>
+<meta name="description" content="Dental clinic in Ring Estate, Osu, Accra. Request an appointment on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--ink:#12343b;--muted:#587176;--line:#dbe9ea;--accent:#0b7a7c;--on-accent:#fff;--mint:#c4ebe5;--band:#eef7f6;--band-ink:#12343b;--band-muted:#587176;--card:#f6fbfb;color-scheme:light}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:"Inter",system-ui,sans-serif;font-weight:300;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 0;font-size:.95rem}
+nav b{font-weight:600;letter-spacing:-.01em}
+nav .links{display:flex;gap:1.5rem;align-items:center;color:var(--muted)}
+nav .links a:hover{color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink);color:var(--bg);padding:.6rem 1.1rem;border-radius:999px;font-weight:500;font-size:.9rem}
+@media(max-width:640px){nav .links a.hide{display:none}}
 
-    .topbar {
-      background: var(--navy);
-      color: #fff;
-      font-size: 0.8rem;
-      padding: 0.55rem 0;
-      text-align: center;
-    }
-    .topbar a { color: #93c5fd; text-decoration: none; font-weight: 600; }
+.hero{position:relative;padding:3.5rem 0 5rem}
+.tooth{position:absolute;right:-4%;top:1rem;width:min(46vw,460px);color:var(--accent);opacity:.9;pointer-events:none}
+.tooth path{fill:none;stroke:currentColor;stroke-width:1.2;stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.4s .2s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.status{display:inline-flex;align-items:center;gap:.6rem;border:1px solid var(--line);background:var(--card);padding:.45rem .9rem;border-radius:999px;font-size:.85rem;font-weight:400;margin-bottom:2rem}
+.status i{width:.55rem;height:.55rem;border-radius:50%;background:#9aa7b4}
+.status.open i{background:#16a34a;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font-weight:300;font-size:clamp(3rem,10.5vw,8.2rem);line-height:.98;letter-spacing:-.045em;position:relative}
+h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+h1 .l span{display:block;transform:translateY(105%);animation:up 1s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .l:nth-child(2) span{animation-delay:.12s}
+h1 .l:nth-child(3) span{animation-delay:.24s}
+h1 em{font-style:normal;font-weight:600;background:linear-gradient(transparent 62%,var(--mint) 62%,var(--mint) 92%,transparent 92%)}
 
-    .hero {
-      position: relative;
-      padding: 3rem 0 2.75rem;
-      background:
-        linear-gradient(135deg, rgba(30,58,95,0.88) 0%, rgba(30,58,95,0.72) 100%),
-        url("https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&q=80") center/cover no-repeat;
-      color: #fff;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.7rem;
-      border-radius: 999px;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: clamp(1.9rem, 5.5vw, 2.6rem);
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-      max-width: 16ch;
-    }
-    .hero p {
-      opacity: 0.9;
-      margin-bottom: 1.5rem;
-      max-width: 36ch;
-      font-size: 1.02rem;
-    }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 0.65rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.85rem 1.25rem;
-      border-radius: 0.65rem;
-      font-weight: 600;
-      font-size: 0.92rem;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s, opacity 0.15s;
-    }
-    .btn:active { transform: scale(0.97); }
-    .btn-wa { background: #25d366; color: #fff; }
-    .btn-light {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      border: 1.5px solid rgba(255,255,255,0.35);
-    }
-    .btn-navy { background: var(--navy); color: #fff; }
+@keyframes up{to{transform:none}}
+.sub{max-width:34rem;margin-top:2rem;font-size:1.15rem;color:var(--muted);position:relative}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.25rem;position:relative}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.6rem;border-radius:999px;font:inherit;font-weight:500;font-size:1rem;border:1.5px solid var(--ink);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:active{transform:scale(.97)}
+.btn.main{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bg)}
 
-    section { padding: 2.5rem 0; }
-    section h2 {
-      font-family: "Libre Baskerville", Georgia, serif;
-      font-size: 1.45rem;
-      margin-bottom: 0.35rem;
-      color: var(--navy);
-    }
-    .section-lead {
-      color: var(--muted);
-      margin-bottom: 1.35rem;
-      font-size: 0.95rem;
-    }
-    .generic-note {
-      background: #fffbeb;
-      border: 1px solid #fde68a;
-      color: #92400e;
-      font-size: 0.82rem;
-      padding: 0.75rem 1rem;
-      border-radius: 0.65rem;
-      margin-bottom: 1.15rem;
-    }
+.band{background:var(--band);color:var(--band-ink);padding:5rem 0;border-radius:2rem 2rem 0 0}
+h2{font-weight:300;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.035em;line-height:1.05}
+.lead{color:var(--band-muted);margin:1rem 0 2.5rem;max-width:34rem}
+.svc{border-top:1px solid rgba(18,52,59,.14)}
+.svc details{border-bottom:1px solid rgba(18,52,59,.14)}
+.svc summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;font-size:clamp(1.4rem,3.6vw,2.4rem);font-weight:300;letter-spacing:-.025em;transition:padding .35s,color .25s}
+.svc summary::-webkit-details-marker{display:none}
+.svc summary::after{content:"+";font-size:1.8rem;font-weight:300;color:var(--band-muted);transition:transform .35s,color .25s}
+.svc details[open] summary::after{transform:rotate(45deg);color:var(--accent)}
+.svc summary:hover{padding-left:1rem;color:var(--accent)}
+.svc p{padding:0 0 1.6rem;color:var(--band-muted);max-width:32rem;font-size:1.02rem}
+.note{margin-top:1.5rem;font-size:.82rem;color:var(--band-muted)}
 
-    .svc-list {
-      display: grid;
-      gap: 0.65rem;
-    }
-    .svc-row {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 0.85rem;
-      padding: 1rem 1.15rem;
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-    }
-    .svc-row .dot {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: var(--navy);
-      flex-shrink: 0;
-    }
-    .svc-row h3 { font-size: 0.98rem; font-weight: 600; }
-    .svc-row p { font-size: 0.82rem; color: var(--muted); margin-top: 0.1rem; }
+.week{padding:5rem 0 3rem}
+.days{display:grid;gap:.5rem;margin-top:2.5rem}
+.day{display:grid;grid-template-columns:5.5rem 1fr 9.5rem;align-items:center;gap:1rem;padding:.9rem 1.1rem;border-radius:1rem;border:1px solid transparent;font-size:.95rem}
+.day.today{background:var(--card);border-color:var(--accent)}
+.day .n{font-weight:500}
+.track{height:.55rem;background:var(--line);border-radius:99px;position:relative}
+.track b{position:absolute;top:0;bottom:0;border-radius:99px;background:var(--accent)}
+.day .t{text-align:right;color:var(--muted)}
+.day.today .t{color:var(--ink);font-weight:500}
+@media(max-width:560px){.day{grid-template-columns:4.2rem 1fr;}.day .t{grid-column:1/-1;text-align:left;margin-top:-.3rem}}
 
-    .two-col {
-      display: grid;
-      gap: 1.25rem;
-    }
-    @media (min-width: 560px) {
-      .two-col { grid-template-columns: 1fr 1fr; }
-    }
-    .info-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 1.25rem;
-    }
-    .hours-list { list-style: none; }
-    .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.55rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-    }
-    .hours-list li:last-child { border-bottom: none; }
-    .hours-list .day { color: var(--muted); }
-    .hours-list .time { font-weight: 600; }
-    .closed { color: var(--gold); }
+.where{display:grid;gap:1.25rem;padding:1rem 0 5rem}
+@media(min-width:760px){.where{grid-template-columns:1.2fr 1fr}}
+.card{border:1px solid var(--line);background:var(--card);border-radius:1.5rem;padding:2rem}
+.card.big{background:var(--accent);color:var(--on-accent);border-color:var(--accent);display:flex;flex-direction:column;justify-content:space-between;min-height:15rem}
+.card.big h3{font-weight:300;font-size:clamp(1.6rem,3.4vw,2.3rem);letter-spacing:-.03em;line-height:1.12}
+.card.big a{align-self:flex-start;margin-top:1.5rem;border-bottom:1.5px solid currentColor;font-weight:500;padding-bottom:.15rem}
+.card h3{font-weight:500;font-size:1.05rem;margin-bottom:.6rem}
+.card p{color:var(--muted)}
+.card .ph{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.card .ph a{border:1px solid var(--line);padding:.5rem .95rem;border-radius:999px;font-weight:500;font-size:.92rem;color:var(--ink)}
+.card .ph a:hover{background:var(--ink);color:var(--bg)}
 
-    .map-wrap {
-      border-radius: 1rem;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      aspect-ratio: 16/10;
-      background: var(--navy-soft);
-      margin-top: 1rem;
-    }
-    .map-wrap iframe { width: 100%; height: 100%; border: 0; }
-    .addr { margin-top: 1rem; color: var(--muted); font-size: 0.93rem; }
-    .addr strong { color: var(--ink); display: block; margin-bottom: 0.2rem; }
-    .phones { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .phones a {
-      background: var(--navy-soft);
-      color: var(--navy);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
-    }
-
-    .form-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 1.1rem;
-      padding: 1.35rem;
-    }
-    .form-card label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
-      margin-top: 0.85rem;
-    }
-    .form-card label:first-of-type { margin-top: 0; }
-    .form-card input,
-    .form-card select,
-    .form-card textarea {
-      width: 100%;
-      padding: 0.75rem 0.9rem;
-      border: 1.5px solid var(--border);
-      border-radius: 0.55rem;
-      font: inherit;
-      font-size: 0.95rem;
-      background: var(--bg);
-      color: var(--ink);
-    }
-    .form-card input:focus,
-    .form-card select:focus,
-    .form-card textarea:focus {
-      outline: none;
-      border-color: var(--navy);
-      background: #fff;
-    }
-    .form-card textarea { min-height: 88px; resize: vertical; }
-    .form-card .btn { width: 100%; justify-content: center; margin-top: 1.15rem; padding: 0.95rem; }
-
-    footer {
-      padding: 2rem 0 2.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      border-top: 1px solid var(--border);
-    }
-    footer a { color: var(--navy); text-decoration: none; font-weight: 600; }
-    .demo-note {
-      display: inline-block;
-      margin-bottom: 0.65rem;
-      background: #fef3c7;
-      color: #92400e;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.28rem 0.6rem;
-      border-radius: 999px;
-    }
-  </style>
+.book{background:var(--band);color:var(--band-ink);padding:5rem 0;border-radius:2rem 2rem 0 0}
+.book .grid{display:grid;gap:2.5rem}
+@media(min-width:860px){.book .grid{grid-template-columns:1fr 1.15fr;gap:4rem}}
+form{display:grid;gap:1.5rem}
+.f label.t,.f .t{display:block;font-size:.85rem;color:var(--band-muted);margin-bottom:.5rem}
+.f input[type=text],.f input[type=tel],.f textarea{width:100%;background:transparent;border:0;border-bottom:1.5px solid rgba(18,52,59,.25);color:inherit;font:inherit;font-size:1.2rem;padding:.5rem 0;border-radius:0}
+.f input:focus,.f textarea:focus{outline:none;border-color:var(--accent)}
+.f ::placeholder{color:rgba(88,113,118,.6)}
+.f textarea{resize:vertical;min-height:3.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:block;border:1.5px solid rgba(18,52,59,.25);padding:.55rem 1rem;border-radius:999px;font-size:.92rem;font-weight:400;transition:all .2s}
+.chips input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:500}
+.chips input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
+.chips label:hover span{border-color:var(--accent)}
+.send{background:var(--accent);color:#fff;border:0;justify-content:center;font-size:1.05rem;padding:1.15rem}
+.err{color:#b42318;font-size:.88rem;min-height:1.2em}
+footer{background:var(--band);color:var(--band-muted);text-align:center;font-size:.82rem;padding:2rem 1.5rem 2.5rem;border-top:1px solid rgba(18,52,59,.12)}
+footer a{color:var(--band-ink);font-weight:500}
+.demo{display:inline-block;margin-bottom:.6rem;border:1px solid rgba(18,52,59,.25);padding:.2rem .7rem;border-radius:99px;font-size:.72rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}h1 .l span{transform:none}.tooth path{stroke-dashoffset:0}}
+</style>
 </head>
 <body>
-  <div class="topbar">
-    <div class="wrap">Ring Estate, Osu · <a href="tel:+233302223250">0302 223250</a> · <a href="tel:+233289109198">0289 109198</a></div>
-  </div>
-
+<div class="wrap">
+  <nav>
+    <b>Spaes Dental</b>
+    <div class="links"><a class="hide" href="#care">Care</a><a class="hide" href="#hours">Hours</a><a class="hide" href="#visit">Visit</a><a class="pill" href="#book">Book a visit</a></div>
+  </nav>
   <header class="hero">
-    <div class="wrap">
-      <span class="hero-badge">Osu · Ring Estate</span>
-      <h1>Spaes Dental Clinic</h1>
-      <p>Friendly dental care near Country Kitchen. Book your visit on WhatsApp — we’ll confirm your appointment.</p>
-      <div class="cta-row">
-        <a class="btn btn-wa" href="#book">Request appointment</a>
-        <a class="btn btn-light" href="tel:+233302223250">Call clinic</a>
-      </div>
-    </div>
+    <svg class="tooth" viewBox="0 0 200 260" aria-hidden="true"><path d="M100 20C60 5 15 25 20 80c3 40 20 60 25 110 3 40 17 60 29 50 14-12 12-50 26-50s12 38 26 50c12 10 26-10 29-50 5-50 22-70 25-110C185 25 140 5 100 20Z"/></svg>
+    <div class="status" id="status"><i></i><span>Checking hours…</span></div>
+    <h1><span class="l"><span>Dental care</span></span><span class="l"><span>that <em>doesn’t</em></span></span><span class="l"><span>rush you.</span></span></h1>
+    <p class="sub">A neighbourhood clinic in Ring Estate, Osu, a short walk from Country Kitchen. Pick a time on WhatsApp and the front desk confirms it.</p>
+    <div class="cta"><a class="btn main" href="#book">Request appointment</a><a class="btn ghost" href="tel:+233302223250">Call 0302 223250</a></div>
   </header>
+</div>
 
-  <main>
-    <section id="services">
-      <div class="wrap">
-        <h2>Care we offer</h2>
-        <p class="section-lead">Typical dental services for a neighbourhood clinic. Confirm what’s available when you book — no prices listed here.</p>
-        <p class="generic-note">Sample service list for this demo. The clinic will confirm exact treatments when you request an appointment.</p>
-        <div class="svc-list">
-          <div class="svc-row"><span class="dot" aria-hidden="true"></span><div><h3>General check-up &amp; consultation</h3><p>Oral exam and treatment advice</p></div></div>
-          <div class="svc-row"><span class="dot" aria-hidden="true"></span><div><h3>Scaling &amp; polishing</h3><p>Professional cleaning</p></div></div>
-          <div class="svc-row"><span class="dot" aria-hidden="true"></span><div><h3>Fillings</h3><p>Restore decayed teeth</p></div></div>
-          <div class="svc-row"><span class="dot" aria-hidden="true"></span><div><h3>Extractions</h3><p>Including wisdom teeth where appropriate</p></div></div>
-          <div class="svc-row"><span class="dot" aria-hidden="true"></span><div><h3>Root canal treatment</h3><p>Save infected teeth</p></div></div>
-          <div class="svc-row"><span class="dot" aria-hidden="true"></span><div><h3>Crowns &amp; dentures</h3><p>Restore missing or damaged teeth</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="info">
-      <div class="wrap">
-        <div class="two-col">
-          <div>
-            <h2>Hours</h2>
-            <p class="section-lead">As listed publicly. Confirm when you book.</p>
-            <div class="info-card">
-              <ul class="hours-list">
-                <li><span class="day">Monday</span><span class="time">8:00 AM – 4:00 PM</span></li>
-                <li><span class="day">Tuesday</span><span class="time">9:00 AM – 4:00 PM</span></li>
-                <li><span class="day">Wednesday</span><span class="time">8:00 AM – 4:00 PM</span></li>
-                <li><span class="day">Thursday</span><span class="time">9:00 AM – 4:00 PM</span></li>
-                <li><span class="day">Friday</span><span class="time">9:00 AM – 4:00 PM</span></li>
-                <li><span class="day">Saturday</span><span class="time">8:00 AM – 2:00 PM</span></li>
-                <li><span class="day">Sunday</span><span class="time closed">Closed</span></li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h2>Contact</h2>
-            <p class="section-lead">Call or WhatsApp to reach the front desk.</p>
-            <div class="info-card">
-              <p style="font-size:0.93rem;color:var(--muted);margin-bottom:0.75rem;">Asafoatse Odweni Lane, Ring Estate / Ringway Estate, Osu — near Country Kitchen.</p>
-              <div class="phones">
-                <a href="tel:+233302223250">0302 223250</a>
-                <a href="tel:+233289109198">0289 109198</a>
-                <a href="https://wa.me/233289109198" target="_blank" rel="noopener" style="background:#dcfce7;color:#166534;">WhatsApp</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="location">
-      <div class="wrap">
-        <h2>Find us</h2>
-        <p class="section-lead">Osu Ring Estate, Accra.</p>
-        <div class="map-wrap">
-          <iframe
-            title="Spaes Dental Clinic on Google Maps"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=Spaes%20Dental%20Clinic%20Asafoatse%20Odweni%20Lane%20Osu%20Accra&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            allowfullscreen></iframe>
-        </div>
-        <p class="addr">
-          <strong>Asafoatse Odweni Ln, Ring Estate, Osu, Accra</strong>
-          <a href="https://maps.google.com/?q=Spaes+Dental+Clinic+Asafoatse+Odweni+Lane+Osu+Accra" target="_blank" rel="noopener">Open in Google Maps →</a>
-        </p>
-      </div>
-    </section>
-
-    <section id="book">
-      <div class="wrap">
-        <h2>Request an appointment</h2>
-        <p class="section-lead">Submit this form and WhatsApp opens with your request ready to send.</p>
-        <div class="form-card">
-          <form id="appt-form">
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" required placeholder="e.g. Kwame Asante" autocomplete="name" />
-
-            <label for="phone">Your phone</label>
-            <input id="phone" name="phone" type="tel" required placeholder="e.g. 024 XXX XXXX" autocomplete="tel" />
-
-            <label for="service">What do you need?</label>
-            <select id="service" name="service" required>
-              <option value="">Choose one…</option>
-              <option>General check-up</option>
-              <option>Scaling &amp; polishing</option>
-              <option>Filling</option>
-              <option>Extraction</option>
-              <option>Root canal</option>
-              <option>Crown / denture</option>
-              <option>Other / ask the clinic</option>
-            </select>
-
-            <label for="when">Preferred day / time</label>
-            <input id="when" name="when" type="text" placeholder="e.g. Saturday morning" />
-
-            <label for="note">Anything else?</label>
-            <textarea id="note" name="note" placeholder="Optional note"></textarea>
-
-            <button type="submit" class="btn btn-wa">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Send on WhatsApp
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <span class="demo-note">Demo site</span>
-      <p>Demo by Durabel · <a href="https://alikamatu.com" target="_blank" rel="noopener">alikamatu.com</a></p>
+<section class="band" id="care">
+  <div class="wrap">
+    <h2>What we treat</h2>
+    <p class="lead">Tap a treatment to see what it involves. The clinic confirms what’s available when you book, and prices are given at the visit.</p>
+    <div class="svc">
+      <details><summary>Check-up &amp; consultation</summary><p>An oral exam, an honest explanation of what we find, and a plan you agree to before anything is done.</p></details>
+      <details><summary>Scaling &amp; polishing</summary><p>Professional cleaning that removes plaque and tartar your brush can’t reach.</p></details>
+      <details><summary>Fillings</summary><p>Repair for teeth damaged by decay, so you can chew comfortably again.</p></details>
+      <details><summary>Extractions</summary><p>Removal of damaged or problem teeth, including wisdom teeth where appropriate.</p></details>
+      <details><summary>Root canal</summary><p>Treatment that clears infection from inside a tooth so it can be kept.</p></details>
+      <details><summary>Crowns &amp; dentures</summary><p>Replacements and covers for teeth that are missing or badly worn.</p></details>
     </div>
-  </footer>
+    <p class="note">Sample service list for this demo. Exact treatments are confirmed by the clinic.</p>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("appt-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var name = document.getElementById("name").value.trim();
-      var phone = document.getElementById("phone").value.trim();
-      var service = document.getElementById("service").value;
-      var when = document.getElementById("when").value.trim();
-      var note = document.getElementById("note").value.trim();
-      var msg = "Hello Spaes Dental, I'd like to request an appointment.%0A%0A" +
-        "Name: " + encodeURIComponent(name) + "%0A" +
-        "Phone: " + encodeURIComponent(phone) + "%0A" +
-        "Service: " + encodeURIComponent(service);
-      if (when) msg += "%0APreferred: " + encodeURIComponent(when);
-      if (note) msg += "%0ANote: " + encodeURIComponent(note);
-      window.open("https://wa.me/233289109198?text=" + msg, "_blank");
-    });
-  </script>
+<div class="wrap">
+  <section class="week" id="hours">
+    <h2>Opening hours</h2>
+    <div class="days" id="days"></div>
+  </section>
+  <section class="where" id="visit">
+    <div class="card big">
+      <h3>Asafoatse Odweni Lane, Ring Estate, Osu, Accra</h3>
+      <a href="https://maps.google.com/?q=Spaes+Dental+Clinic+Asafoatse+Odweni+Lane+Osu+Accra" target="_blank" rel="noopener">Open in Google Maps</a>
+    </div>
+    <div class="card">
+      <h3>Reach the front desk</h3>
+      <p>Call or message to ask about a treatment or move an appointment.</p>
+      <div class="ph"><a href="tel:+233302223250">0302 223250</a><a href="tel:+233289109198">0289 109198</a><a href="https://wa.me/233289109198" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+  </section>
+</div>
+
+<section class="book" id="book">
+  <div class="wrap grid">
+    <div>
+      <h2>Tell us what you need. We’ll reply on WhatsApp.</h2>
+      <p class="lead" style="margin-bottom:0">Fill this in and WhatsApp opens with your request written out. Nothing is sent until you press send there.</p>
+    </div>
+    <form id="f" class="f" novalidate>
+      <div><label class="t" for="name">Your name</label><input id="name" type="text" placeholder="Kwame Asante" autocomplete="name"></div>
+      <div><label class="t" for="phone">Your phone</label><input id="phone" type="tel" placeholder="024 000 0000" autocomplete="tel"></div>
+      <fieldset style="border:0"><legend class="t">What do you need?</legend>
+        <div class="chips" id="svcs"></div></fieldset>
+      <fieldset style="border:0"><legend class="t">Preferred day</legend>
+        <div class="chips" id="dys"></div></fieldset>
+      <fieldset style="border:0"><legend class="t">Preferred time</legend>
+        <div class="chips" id="tms"></div></fieldset>
+      <div><label class="t" for="note">Anything we should know?</label><textarea id="note" placeholder="Optional"></textarea></div>
+      <p class="err" id="err" role="alert"></p>
+      <button class="btn send" type="submit">Send on WhatsApp</button>
+    </form>
+  </div>
+</section>
+<footer><span class="demo">Demo site</span><p>Demo by Durabel · <a href="https://alikamatu.com" target="_blank" rel="noopener">alikamatu.com</a></p></footer>
+
+<script>
+var H=[["Sunday",null],["Monday",[8,16]],["Tuesday",[9,16]],["Wednesday",[8,16]],["Thursday",[9,16]],["Friday",[9,16]],["Saturday",[8,14]]];
+function f(h){var s=h>=12?"PM":"AM";h=h%12||12;return h+":00 "+s}
+// Accra runs on GMT, so UTC matches clinic time
+var now=new Date(),d=now.getUTCDay(),hr=now.getUTCHours()+now.getUTCMinutes()/60;
+var order=[1,2,3,4,5,6,0],box=document.getElementById("days");
+order.forEach(function(i){var n=H[i][0],t=H[i][1],r=document.createElement("div");
+ r.className="day"+(i===d?" today":"");
+ r.innerHTML='<span class="n">'+n.slice(0,3)+'</span><div class="track">'+(t?'<b style="left:'+((t[0]-7)/10*100)+'%;width:'+((t[1]-t[0])/10*100)+'%"></b>':'')+'</div><span class="t">'+(t?f(t[0])+" – "+f(t[1]):"Closed")+'</span>';
+ box.appendChild(r)});
+var st=document.getElementById("status"),tt=H[d][1],msg;
+if(tt&&hr>=tt[0]&&hr<tt[1]){st.className="status open";msg="Open now, until "+f(tt[1])}
+else{var k=hr<(tt?tt[0]:0)&&tt?0:1,nx=null;
+ for(;k<=7;k++){var j=(d+k)%7;if(H[j][1]){nx=[j,k];break}}
+ msg="Closed now, opens "+(nx[1]===0?"today":nx[1]===1?"tomorrow":H[nx[0]][0])+" "+f(H[nx[0]][1][0])}
+st.lastElementChild.textContent=msg;
+function chips(id,name,list){document.getElementById(id).innerHTML=list.map(function(v){return'<label><input type="radio" name="'+name+'" value="'+v+'"><span>'+v+'</span></label>'}).join("")}
+chips("svcs","svc",["Check-up","Scaling & polishing","Filling","Extraction","Root canal","Crown or denture","Not sure"]);
+chips("dys","day",["Any day","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]);
+chips("tms","tm",["Morning","Afternoon","Any time"]);
+document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();
+ var g=function(id){return document.getElementById(id).value.trim()},c=function(n){var x=document.querySelector('input[name="'+n+'"]:checked');return x?x.value:""},
+ name=g("name"),phone=g("phone"),svc=c("svc"),err=document.getElementById("err");
+ if(!name||!phone||!svc){err.textContent="Add your name, phone and the treatment you need.";return}
+ err.textContent="";
+ var m="Hello Spaes Dental, I’d like to request an appointment.\n\nName: "+name+"\nPhone: "+phone+"\nTreatment: "+svc;
+ if(c("day"))m+="\nPreferred day: "+c("day");if(c("tm"))m+="\nPreferred time: "+c("tm");if(g("note"))m+="\nNote: "+g("note");
+ window.open("https://wa.me/233289109198?text="+encodeURIComponent(m),"_blank")});
+</script>
 </body>
 </html>
